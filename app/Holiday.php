@@ -10,7 +10,7 @@ class Holiday extends Model
     protected $table = 'holidays';
 
     //The columns associated with the model.
-    protected $primaryKey = 'code';
+    protected $primaryKey = 'id';
     
     protected $fillable = [
         'name',
