@@ -147,7 +147,7 @@ class HolidayController extends Controller
             $data[] = array('name' => $name, 'date' => $date, 'country_code' => 'zaf');
         }
         Holiday::insert($data);
-        return response()->json(['message' => 'Holidays DB has been initiated'], 200);
+        return view('init');
     }
 
     /**
@@ -166,12 +166,18 @@ class HolidayController extends Controller
     private function convertHolidaysToHTML()
     {
         $holidays = Holiday::all();
-        $html = "<style>.tableStyle {width:100%;border:1px solid #C0C0C0;border-collapse:collapse;padding:5px;}.tableStyle th {border:1px solid #C0C0C0;padding:5px;background:#F0F0F0;}.tableStyle td {border:1px solid #C0C0C0;padding:5px;}</style>";
-        $html .= "<h1>South African Public Holidays [2020]</h1><table class='tableStyle'><thead><tr><td>Date</td><td>Name</td></tr></thead><tbody>";
-        foreach($holidays as $holiday) {
-            $html .= "<tr><td>".$holiday->date."</td><td>".$holiday->name."</td></tr>";
+        $html = "";
+        if (empty($holidays)) {
+            $html .= "<style>.tableStyle {width:100%;border:1px solid #C0C0C0;border-collapse:collapse;padding:5px;}.tableStyle th {border:1px solid #C0C0C0;padding:5px;background:#F0F0F0;}.tableStyle td {border:1px solid #C0C0C0;padding:5px;}</style>";
+            $html .= "<h1>South African Public Holidays [2020]</h1><table class='tableStyle'><thead><tr><td>Date</td><td>Name</td></tr></thead><tbody>";
+            foreach($holidays as $holiday) {
+                $html .= "<tr><td>".$holiday->date."</td><td>".$holiday->name."</td></tr>";
+            }
+            $html .= "</tbody></table>";
+        } else {
+            $html .= "<p>App has not been initiated yet.</p>";
         }
-        $html .= "</tbody></table>";
+        
         return $html;
     }
 }

@@ -10,12 +10,11 @@
     <body>
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Hello, welcome to the holiday app!</h1>
-                <p>Please click one of the buttons to indicate how you'd like to proceed.</p>
+                <h1 class="display-3">Success!</h1>
+                <p>South African Public Holidays have been retrieved.</p>
                 <p>
-                    <a class="btn btn-primary btn-lg" href="{{ url('init') }}" role="button">Initiate App</a>
+                    <a class="btn btn-primary btn-lg" href="{{ url('/') }}" role="button">Go Home</a>
                     <a class="btn btn-primary btn-lg" href="{{ url('holidays') }}" role="button">View Holidays</a>
-                    <a class="btn btn-primary btn-lg" href="{{ url('generatePDF') }}" role="button">Download PDF</a>
                 </p>
             </div>
         </div>
