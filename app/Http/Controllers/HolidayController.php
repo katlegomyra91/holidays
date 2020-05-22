@@ -167,7 +167,7 @@ class HolidayController extends Controller
     {
         $holidays = Holiday::all();
         $html = "";
-        if (empty($holidays)) {
+        if (count($holidays) > 0) {
             $html .= "<style>.tableStyle {width:100%;border:1px solid #C0C0C0;border-collapse:collapse;padding:5px;}.tableStyle th {border:1px solid #C0C0C0;padding:5px;background:#F0F0F0;}.tableStyle td {border:1px solid #C0C0C0;padding:5px;}</style>";
             $html .= "<h1>South African Public Holidays [2020]</h1><table class='tableStyle'><thead><tr><td>Date</td><td>Name</td></tr></thead><tbody>";
             foreach($holidays as $holiday) {
