@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h1>Holidays</h1>
-                    <p><a type="button" class="btn btn-primary" href="{{ url('generatePDF') }}">Download PDF</a></p>
                     @if(count($holidays) > 0)
+                        <p><a type="button" class="btn btn-primary" href="{{ url('generatePDF') }}">Download PDF</a></p>
                         <div class="card">
                             <ul class="list-group list-group-flush">
                                 @foreach($holidays as $holiday)
@@ -23,7 +23,7 @@
                         </div>
                     @else
                         <p>No holidays found</p>
-                        <a type="button" class="btn btn-primary" href="{{ url('init') }}">Initiate get holidays</a>
+                        <a type="button" class="btn btn-primary" href="{{ url('init') }}">Initiate App</a>
                     @endif
                 </div>
             </div>
